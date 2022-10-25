@@ -20,7 +20,7 @@ class User < ApplicationRecord
       :uniqueness => { :case_sensitive => false }
     }
   )
-
+#this checks our password_digest for a true or false statment, giving us the ability to manipulate the outcome in our users controller
   has_secure_password
 
   def comments
