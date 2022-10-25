@@ -15,6 +15,44 @@
   </head>
 
   <body>
+    <nav>
+      <ul>
+        <li>
+          <a href="/users">Users</a>
+        </li>
+        <li>
+          <a href="/photos">Photos</a>
+        </li>
+        <li>
+          <a href="/user_sign_out">Sign Out</a>
+        </li>
+        <li>
+          <a href="/user_sign_up">Sign Up</a>
+        </li>
+        <li>
+          <%= session.fetch(:user_id) %>
+        </li>
+      </ul>
+    </nav>
+    
+    <!-- we are going to use conditionals in our view templates to help us differentiate when the dom should render
+    a specific div or style associated with a particular function.
+     -->
+  <% if notice.present? %>
+    <div style= "border: thin green solid; color:green;">
+     <%= notice  %>
+    </div>
+  <% end %>
+
+<!-- present should be thought of as if the input is not equal to nil. So, if the statment holds true in either statment,
+the cooresponding output for our css will be present rather than constantly being on display
+-->
+  <% if alert.present? %>
+    <div style= "border: thin red solid; color: red;">
+      <%= alert %>
+    </div>
+  <% end %>
     <%= yield %>
+
   </body>
 </html>
